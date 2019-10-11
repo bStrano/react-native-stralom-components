@@ -2,6 +2,7 @@ import {StyleSheet, Text, View} from "react-native";
 import React from "react";
 import PropTypes from 'prop-types';
 import Icon from "./Icon";
+import stylesConstants from "./Constants/StyleConstant";
 
 export default class CardLine extends React.Component{
     renderTitle(){
@@ -14,19 +15,19 @@ export default class CardLine extends React.Component{
 
     render(){
         return (
-            <View style={this.styles.container}>
-                <View style={this.styles.cardContainer}>
-                    <View style={this.styles.contentContainer}>
-                        <View style={this.styles.leftLine}/>
-                        <View style={this.styles.content}>
-                            <Text style={[this.styles.tagLabelText]}>{this.props.tag}</Text>
-                            <Text style={this.styles.topLabelText}>{this.props.subtitleTop}</Text>
-                            <Text style={this.styles.titleText}>{this.props.title}</Text>
-                            <Text style={this.styles.bottomLabelText}>{this.props.subtitleBottom}</Text>
+            <View style={[styles.container, styles.containerStyle]}>
+                <View style={[styles.cardContainer, styles.cardContainerStyle]}>
+                    <View style={[styles.contentContainer, styles.contentContainerStyle]}>
+                        <View style={[styles.leftLine, {backgroundColor: this.props.color}, styles.leftLineStyle]}/>
+                        <View style={[styles.content, styles.contentStyle]}>
+                            <Text style={[styles.tagLabelText, {color: this.props.color}, styles.tagLabelTextStyle]}>{this.props.tag}</Text>
+                            <Text style={[styles.topLabelText, styles.topLabelTextStyle]}>{this.props.subtitleTop}</Text>
+                            <Text style={[styles.titleText, styles.titleTextStyle]}>{this.props.title}</Text>
+                            <Text style={[styles.bottomLabelText, styles.bottomLabelTextStyle]}>{this.props.subtitleBottom}</Text>
                         </View>
 
                     </View>
-                    <Icon name={this.props.iconName} class={this.props.iconClass} color={this.props.color} size={22} style={{padding: 18}}  />
+                    <Icon name={this.props.iconName} class={this.props.iconClass} color={this.props.color} size={22} style={[{padding: 18}, this.props.iconStyle]}  />
                 </View>
 
             </View>
@@ -35,7 +36,6 @@ export default class CardLine extends React.Component{
 
     constructor(props) {
         super(props);
-        this.styles = styles(props);
     }
 };
 
@@ -47,9 +47,18 @@ CardLine.propTypes  = {
     subtitleBottom: PropTypes.string,
     fontFamily: PropTypes.string,
     iconClass: PropTypes.string,
-    iconName: PropTypes.string
+    iconName: PropTypes.string,
 
-    
+    tagLabelTextStyle: PropTypes.object,
+    topLabelTextStyle: PropTypes.object,
+    titleTextStyle: PropTypes.object,
+    bottomLabelTextStyle: PropTypes.object,
+    containerStyle: PropTypes.object,
+    cardContainerStyle: PropTypes.object,
+    contentContainerStyle: PropTypes.object,
+    leftLineStyle: PropTypes.object,
+    contentStyle: PropTypes.object,
+    iconStyle: PropTypes.object
 };
 
 CardLine.defaultProps = {
@@ -58,32 +67,25 @@ CardLine.defaultProps = {
     iconClass: 'MaterialCommunityIcons',
 };
 
-const styles = (props) => StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1, alignItems: 'center', marginVertical: 20
     },
     cardContainer: {
         flexDirection: 'row', width: '90%', borderColor: 'lightgray', borderWidth: 0.2, shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.18,
-        shadowRadius: 1.00,
-
-        elevation: 1,
+        ...stylesConstants.elevation
     },
     contentContainer: {
         flex: 1, flexDirection: 'row'
     },
     leftLine: {
-        backgroundColor: props.color, width: 6,height: '100%'
+        width: 6,height: '100%'
     },
     content: {
         padding: 20
     },
     tagLabelText: {
-        fontSize: 10, fontFamily: 'Roboto', paddingBottom: 10, color: props.color
+        fontSize: 10, fontFamily: 'Roboto', paddingBottom: 10
     },
     titleText: {
         fontFamily: 'Roboto', paddingBottom: 3, fontWeight: 'bold'
