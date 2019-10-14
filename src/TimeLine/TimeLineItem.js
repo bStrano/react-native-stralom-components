@@ -63,6 +63,7 @@ const TimeLineItem = (props) => {
 
                         }
                 </View>
+                {props.rightAdditionalComponent}
             </View>
             <Divider style={{marginVertical: 0}}/>
         </View>
@@ -108,6 +109,7 @@ TimeLineItem.propTypes = {
     rightTitle: PropTypes.string,
     rightTitleStyle: PropTypes.object,
     rightCustomComponent: PropTypes.instanceOf(React.Component),
-    timeLineContainerStyle: PropTypes.object
+    timeLineContainerStyle: PropTypes.object,
+    rightAdditionalComponent: PropTypes.instanceOf(React.Component)
 };
 
