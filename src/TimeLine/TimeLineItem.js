@@ -24,8 +24,8 @@ const TimeLineItem = (props) => {
     const styles = styleSheet(props);
     return (
         <View>
-            <Divider style={{marginBottom: 0}}/>
-            <View style={{flexDirection: 'row'}}>
+            <Divider style={[{marginBottom: 0}, props.dividerStyle]}/>
+            <View style={[{flexDirection: 'row'}, props.mainContainerStyle]}>
                 <View style={styles.leftContainer}>
                     {
                         props.leftCustomComponent != null ?
@@ -62,16 +62,16 @@ const TimeLineItem = (props) => {
                             </View>
 
                         }
+                    {props.rightAdditionalComponent}
                 </View>
-                {props.rightAdditionalComponent}
             </View>
-            <Divider style={{marginVertical: 0}}/>
+            <Divider style={[{marginVertical: 0},props.dividerStyle]}/>
         </View>
     )
 };
 
 
-const styleSheet = (props) => StyleSheet.create({
+const styleSheet = StyleSheet.create({
 
     // Left  Content
     leftContainer: {
@@ -108,6 +108,8 @@ TimeLineItem.propTypes = {
     rightSubtitleStyle: PropTypes.object,
     rightTitle: PropTypes.string,
     rightTitleStyle: PropTypes.object,
+    dividerStyle: PropTypes.object,
+    mainContainerStyle: PropTypes.object,
     rightCustomComponent: PropTypes.instanceOf(React.Component),
     timeLineContainerStyle: PropTypes.object,
     rightAdditionalComponent: PropTypes.instanceOf(React.Component)

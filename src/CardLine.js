@@ -68,7 +68,7 @@ CardLine.defaultProps = {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1, alignItems: 'center', marginVertical: 20
+        flex: 1, alignItems: 'center', marginVertical: 8
     },
     cardContainer: {
         flexDirection: 'row', width: '90%', borderColor: 'lightgray', borderWidth: 0.2, shadowColor: "#000",
