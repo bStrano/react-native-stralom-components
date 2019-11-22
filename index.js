@@ -5,5 +5,6 @@ import Divider from "./src/Divider";
 import {TimeLineItem} from "./src/TimeLine/TimeLineItem";
 import {TimeLineCenterComponent,TimeLineBottomComponent,TimeLineTopComponent} from "./src/TimeLine/TimeLineComponent";
 import Header from "./src/Header";
+import CheckBox from "./src/CheckBox";
 
-export {Icon,ICON_CLASS,CardLine, Divider,TimeLineCenterComponent,TimeLineBottomComponent,TimeLineTopComponent,TimeLineItem, Header}
+export {Icon,ICON_CLASS,CardLine, Divider,TimeLineCenterComponent,TimeLineBottomComponent,TimeLineTopComponent,TimeLineItem, Header, CheckBox}
