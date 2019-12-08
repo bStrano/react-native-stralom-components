@@ -8,5 +8,6 @@ import Header from "./src/Header";
 import CheckBox from "./src/CheckBox";
 import StringUtil from "./src/Util/StringUtil";
 import CheckList from "./src/CheckList";
+import FAB from "./src/FAB";
 
-export {Icon,ICON_CLASS,CardLine, Divider,TimeLineCenterComponent,TimeLineBottomComponent,TimeLineTopComponent,TimeLineItem, Header, CheckBox, StringUtil,CheckList}
+export {Icon,ICON_CLASS,CardLine, Divider,TimeLineCenterComponent,TimeLineBottomComponent,TimeLineTopComponent,TimeLineItem, Header, CheckBox, StringUtil,CheckList, FAB}

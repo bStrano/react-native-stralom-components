@@ -157,7 +157,7 @@ CheckList.propTypes = {
     fontFamily: PropTypes.string,
     onItemChange: PropTypes.func.isRequired,
     placeholderInput: PropTypes.string,
-    contentInputFontSize: PropTypes.string,
+    contentInputFontSize: PropTypes.number,
 
     insertContainerStyle: PropTypes.object,
     contentContainerStyle: PropTypes.object,

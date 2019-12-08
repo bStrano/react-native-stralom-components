@@ -88,7 +88,7 @@ Header.propTypes = {
     iconLeftClass: PropTypes.string,
     iconLeftColor: PropTypes.string,
     iconLeftName: PropTypes.string,
-    iconLeftSize: PropTypes.string,
+    iconLeftSize: PropTypes.number,
     title: PropTypes.string.isRequired,
     fontFamily: PropTypes.string,
     fontColor: PropTypes.string,
