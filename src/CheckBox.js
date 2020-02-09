@@ -7,7 +7,7 @@ class CheckBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            active: false,
+            active: this.props.active != null ? false : this.props.active,
         };
     }
 
@@ -15,7 +15,7 @@ class CheckBox extends React.Component {
         return (
             <TouchableOpacity
                 style={[styles.mainContainer, this.props.mainContainer]}
-                onPress={() => this.onPressLeft()}>
+                onPress={() => this.onPress()}>
                 {this.state.active ? (
                     <Icon
                         name={this.props.iconNameActive}
@@ -35,10 +35,10 @@ class CheckBox extends React.Component {
         );
     }
 
-    onPressLeft() {
+    onPress() {
         this.setState({active: !this.state.active});
-        if (this.props.onPressLeft) {
-            this.props.onPressLeft();
+        if (this.props.onPress) {
+            this.props.onPress();
         }
     }
 }
@@ -57,7 +57,7 @@ CheckBox.propTypes = {
     iconNameActive: PropTypes.string,
     iconNameInactive: PropTypes.string,
     iconSize: PropTypes.number,
-    onPressLeft: PropTypes.func,
+    onPress: PropTypes.func,
     mainContainer: PropTypes.object,
 };
 

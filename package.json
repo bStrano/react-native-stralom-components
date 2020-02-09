@@ -13,7 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "metro-react-native-babel-preset": "^0.56.0",
-    "react-native-vector-icons": "^6.6.0"
+    "react-native-vector-icons": "^6.6.0",
+    "@types/react-native": "^0.60.22"
   },
   "dependencies": {
     "prop-types": "latest"

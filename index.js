@@ -9,5 +9,7 @@ import CheckBox from "./src/CheckBox";
 import StringUtil from "./src/Util/StringUtil";
 import CheckList from "./src/CheckList";
 import FAB from "./src/FAB";
+import Tag from "./src/Tag";
+import TagList from "./src/TagList";
 
-export {Icon,ICON_CLASS,CardLine, Divider,TimeLineCenterComponent,TimeLineBottomComponent,TimeLineTopComponent,TimeLineItem, Header, CheckBox, StringUtil,CheckList, FAB}
+export {Icon,ICON_CLASS,CardLine, Divider,TimeLineCenterComponent,TimeLineBottomComponent,TimeLineTopComponent,TimeLineItem, Header, CheckBox, StringUtil,CheckList, FAB, Tag, TagList}

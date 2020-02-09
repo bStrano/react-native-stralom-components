@@ -6,6 +6,7 @@ import Icon from "./Icon";
 
 const FAB = props => (
     <TouchableOpacity
+        onPress={() => props.onPress()}
         style={{
             height: 56,
             width: 56,
@@ -31,6 +32,7 @@ const FAB = props => (
 export default FAB;
 
 FAB.propTypes = {
+    onPress: PropTypes.func,
     backgroundColor: PropTypes.string,
     iconClass: PropTypes.string,
     iconColor: PropTypes.string,
