@@ -28,6 +28,30 @@ class Header extends React.Component {
         }
     }
 
+    renderAdditionalButtons(){
+        if (this.props.iconRightName) {
+            return (
+                <TouchableOpacity
+                    style={{marginHorizontal: 16}}
+                    onPress={() => this.props.onPressRight()}>
+                    <Icon
+                        name={this.props.iconRightName}
+                        class={this.props.iconRightClass}
+                        size={this.props.iconRightSize}
+                        color={
+                            this.props.iconRightColor
+                                ? this.props.iconRightColor
+                                : this.props.fontColor
+                        }
+                    />
+                </TouchableOpacity>
+            );
+        } else {
+            return null;
+        }
+
+    }
+
     renderTitleContent() {
         return (
             <Text
@@ -60,6 +84,7 @@ class Header extends React.Component {
                 </View>
                 {/* eslint-disable-next-line react-native/no-inline-styles */}
                 <View style={{flex: 1}}>{this.renderTitleContent()}</View>
+                {this.renderAdditionalButtons()}
             </View>
         );
     }
@@ -85,14 +110,23 @@ export default Header;
 
 Header.propTypes = {
     backgroundColor: PropTypes.string,
+
     iconLeftClass: PropTypes.string,
     iconLeftColor: PropTypes.string,
     iconLeftName: PropTypes.string,
     iconLeftSize: PropTypes.number,
+    onPressLeft: PropTypes.func,
+
+    iconRightClass: PropTypes.string,
+    iconRightColor: PropTypes.string,
+    iconRightName: PropTypes.string,
+    iconRightSize: PropTypes.number,
+    onPressRight: PropTypes.func,
+
+
     title: PropTypes.string.isRequired,
     fontFamily: PropTypes.string,
     fontColor: PropTypes.string,
-    onPressLeft: PropTypes.func,
     containerStyle: PropTypes.object,
     titleContainerStyle: PropTypes.object,
     titleStyle: PropTypes.object,

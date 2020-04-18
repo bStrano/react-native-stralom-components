@@ -11,5 +11,6 @@ import CheckList from "./src/CheckList";
 import FAB from "./src/FAB";
 import Tag from "./src/Tag";
 import TagList from "./src/TagList";
+import TextInputWI from "./src/TextInput/TextInputWI";
 
-export {Icon,ICON_CLASS,CardLine, Divider,TimeLineCenterComponent,TimeLineBottomComponent,TimeLineTopComponent,TimeLineItem, Header, CheckBox, StringUtil,CheckList, FAB, Tag, TagList}
+export {Icon,ICON_CLASS,CardLine, Divider,TimeLineCenterComponent,TimeLineBottomComponent,TimeLineTopComponent,TimeLineItem, Header, CheckBox, StringUtil,CheckList, FAB, Tag, TagList, TextInputWI}
