@@ -12,5 +12,6 @@ import FAB from "./src/FAB";
 import Tag from "./src/Tag";
 import TagList from "./src/TagList";
 import TextInputWI from "./src/TextInput/TextInputWI";
+import LoadingModal from "./src/LoadingModal";
 
-export {Icon,ICON_CLASS,CardLine, Divider,TimeLineCenterComponent,TimeLineBottomComponent,TimeLineTopComponent,TimeLineItem, Header, CheckBox, StringUtil,CheckList, FAB, Tag, TagList, TextInputWI}
+export {Icon,ICON_CLASS,CardLine, Divider,TimeLineCenterComponent,TimeLineBottomComponent,TimeLineTopComponent,TimeLineItem, Header, CheckBox, StringUtil,CheckList, FAB, Tag, TagList, TextInputWI, LoadingModal}

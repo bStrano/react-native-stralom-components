@@ -46,7 +46,7 @@ TextInputWI.propTypes = {
 TextInputWI.defaultProps = {
     color: 'white',
     iconSize: 22,
-    height: 50,
+    height: 60,
     iconClass: ICON_CLASS.MaterialIcons,
 };
 
