@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {Icon, ICON_CLASS} from 'react-native-stralom-components';
+import Icon, {ICON_CLASS} from './Icon';
+
 
 class CheckBox extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             active: this.props.active != null ? false : this.props.active,

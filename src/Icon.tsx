@@ -12,29 +12,31 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import Octicons from 'react-native-vector-icons/Octicons'
 import Zocial from 'react-native-vector-icons/Zocial'
-import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
+import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons"
+import IIcon from './interfaces/IIcon';
 
 
-export const ICON_CLASS = {
-    AntDesign: 'AntDesign',
-    Entypo: 'Entypo',
-    Foundation: 'Foundation',
-    Ionicons: 'Ionicons',
-    Fontisto: "Fontisto",
-    EvilIcons: 'EvilIcons',
-    Feather: 'Feather',
-    FontAwesome: 'FontAwesome',
-    FontAwesome5: 'FontAwesome5',
-    MaterialIcons: 'MaterialIcons',
-    MaterialCommunityIcons: 'MaterialCommunityIcons',
-    Octicons: 'Octicons',
-    Zocial: 'Zocial',
-    SimpleLineIcons: 'SimpleLineIcons'
-};
+export enum ICON_CLASS {
+    AntDesign = 'AntDesign',
+    Entypo = 'Entypo',
+    Foundation = 'Foundation',
+    Ionicons = 'Ionicons',
+    Fontisto = "Fontisto",
+    EvilIcons = 'EvilIcons',
+    Feather = 'Feather',
+    FontAwesome = 'FontAwesome',
+    FontAwesome5 = 'FontAwesome5',
+    MaterialIcons = 'MaterialIcons',
+    MaterialCommunityIcons = 'MaterialCommunityIcons',
+    Octicons = 'Octicons',
+    Zocial = 'Zocial',
+    SimpleLineIcons = 'SimpleLineIcons'
+}
 
-function getIconFromClass(props){
-    if(props.class == null) return <MaterialIcons {...props}/>;
-    switch (props.class) {
+function getIconFromClass(icon: IIcon) {
+    const props = {size: icon.size, name: icon.name, color: icon.color};
+    if (icon.class == null) return <MaterialIcons {...props}/>;
+    switch (icon.class) {
         case ICON_CLASS.AntDesign:
             return <AntDesign {...props}/>;
         case ICON_CLASS.Entypo:
@@ -66,15 +68,13 @@ function getIconFromClass(props){
     }
 }
 
-export default class Icon extends React.Component {
-
-    render() {
-        return (
-            getIconFromClass(this.props)
-        )
-    }
+function Icon(props: IIcon) {
+    return (
+      getIconFromClass(props)
+    )
 }
 
+export default Icon;
 
 
 Icon.propTypes = {
