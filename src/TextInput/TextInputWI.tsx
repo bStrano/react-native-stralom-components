@@ -1,37 +1,42 @@
 import React from 'react';
-import {StyleSheet, TextInput, View} from "react-native";
+import {StyleSheet, TextInput, View, Text} from "react-native";
 import Icon, {ICON_CLASS} from "../Icon";
-import Dimensions from "../Constants/Dimensions";
-import IIcon from '../interfaces/IIcon';
+import ITextInputWI from '../interfaces/TextInput/ITextInputWI';
 
-interface ITextInputWI {
-    icon: IIcon,
-    value: string,
-    height: number,
-    onChangeText: Function,
-    textColor: string
-}
 
 function TextInputWI(props: ITextInputWI) {
     const styles = Styles(props);
+    const {icon: Teste} = props
+    console.log(Teste)
     return (
-      <View style={styles.mainContainer}>
-          <View style={[styles.inputContainer, styles.iconContainer]}>
-              <Icon
-                class={props.icon.class}
-                name={props.icon.name}
-                color={props.icon.color}
-                size={props.icon.size}
+      <View style={[styles.container, props.styles.container]}>
+          {
+              props.label &&
+              <Text style={[styles.label, props.styles.label ]}>{props.label}</Text>
+          }
+          <View style={styles.mainContainer}>
+              {
+                  props.icon &&
+                  <View style={[styles.inputContainer, styles.iconContainer]}>
+                      <Icon
+                        class={props.icon.class}
+                        name={props.icon.name}
+                        color={props.icon.color}
+                        size={props.icon.size}
+                      />
+                  </View>
+              }
+
+              <TextInput
+                {...props}
+                value={props.value}
+                placeholderTextColor={props.placeholderTextColor}
+                onChangeText={props.onChangeText}
+                style={[styles.inputContainer, styles.textContainer, props.styles.textInput]}
               />
           </View>
-          <TextInput
-            {...props}
-            value={props.value}
-            placeholderTextColor={props.textColor}
-            onChangeText={text => props.onChangeText(text)}
-            style={[styles.inputContainer, styles.textContainer]}
-          />
       </View>
+
     );
 }
 
@@ -54,7 +59,7 @@ const Styles = (props: ITextInputWI) => {
         inputContainer: {
             backgroundColor: 'rgba(52,52,52,0.8)',
             opacity: 1,
-            borderColor: 'grey',
+            borderColor: '#585858',
             borderWidth: 1,
         },
         iconContainer: {
@@ -66,11 +71,18 @@ const Styles = (props: ITextInputWI) => {
             alignItems: 'center',
         },
         textContainer: {
-            width: Dimensions.width * 0.7,
+            flex: 1,
+            width: props.width,
             borderTopRightRadius: 10,
             padding: 10,
             color: 'white',
             borderBottomRightRadius: 10,
         },
+        label: {
+            fontSize: 15, paddingLeft: 10, color: "#696969"
+        },
+        container: {
+
+        }
     });
 };
