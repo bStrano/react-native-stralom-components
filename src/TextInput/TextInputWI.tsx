@@ -1,18 +1,33 @@
-import React from 'react';
-import {StyleSheet, TextInput, View, Text} from "react-native";
+import React, {useCallback, useState} from 'react';
+import {StyleSheet, TextInput, View, Text, Pressable} from "react-native";
 import Icon, {ICON_CLASS} from "../Icon";
 import ITextInputWI from '../interfaces/TextInput/ITextInputWI';
 
 
 function TextInputWI(props: ITextInputWI) {
+    const [showPassword, setShowPassword] = useState(false)
     const styles = Styles(props);
-    const {icon: Teste} = props
-    console.log(Teste)
+
+    const renderPasswordIcon = useCallback(() => {
+        if(props.isPassword){
+            return (
+                <Pressable onPress={() =>  setShowPassword(!showPassword)} style={[ styles.iconRightContainer]}>
+                    <Icon
+                        class={"Ionicons"}
+                        name={showPassword ? 'eye-off' : 'eye'}
+                        color={props.borderColor}
+                        size={20}
+                    />
+                </Pressable>
+            )
+        }
+    },[props.isPassword,showPassword])
+
     return (
-      <View style={[styles.container, props.styles.container]}>
+      <View style={[styles.container, props?.styles?.container]}>
           {
               props.label &&
-              <Text style={[styles.label, props.styles.label ]}>{props.label}</Text>
+              <Text style={[styles.label, props?.styles?.label ]}>{props.label}</Text>
           }
           <View style={styles.mainContainer}>
               {
@@ -30,10 +45,15 @@ function TextInputWI(props: ITextInputWI) {
               <TextInput
                 {...props}
                 value={props.value}
+                secureTextEntry={showPassword}
                 placeholderTextColor={props.placeholderTextColor}
                 onChangeText={props.onChangeText}
-                style={[styles.inputContainer, styles.textContainer, props.styles.textInput]}
+                style={[styles.inputContainer, styles.textContainer, props?.styles?.textInput]}
               />
+
+              {
+                  renderPasswordIcon()
+              }
           </View>
       </View>
 
@@ -54,13 +74,14 @@ const Styles = (props: ITextInputWI) => {
         mainContainer: {
             height: props.height,
             flexDirection: 'row',
-            margin: 8,
+            margin: 6,
         },
         inputContainer: {
-            backgroundColor: 'rgba(52,52,52,0.8)',
+            backgroundColor: props.backgroundColor,
             opacity: 1,
-            borderColor: '#585858',
+            borderColor: props.borderColor,
             borderWidth: 1,
+            borderRightWidth: props.isPassword ? 0 : undefined
         },
         iconContainer: {
             width: 22 * 3,
@@ -70,19 +91,36 @@ const Styles = (props: ITextInputWI) => {
             borderRightWidth: 1,
             alignItems: 'center',
         },
+        iconRightContainer: {
+            width: 22 * 2,
+            backgroundColor: props.backgroundColor,
+            borderTopRightRadius: 22,
+            borderBottomRightRadius: 22,
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderWidth: 1,
+            opacity: 1,
+            borderLeftWidth: 0,
+            borderColor: props.borderColor
+        },
         textContainer: {
             flex: 1,
             width: props.width,
-            borderTopRightRadius: 10,
+            borderTopRightRadius: props.isPassword ? 0 : 10,
             padding: 10,
-            color: 'white',
-            borderBottomRightRadius: 10,
+            color: 'black',
+            borderBottomRightRadius: props.isPassword ? 0 : 10,
         },
         label: {
-            fontSize: 15, paddingLeft: 10, color: "#696969"
+            fontSize: 15, paddingLeft: 10, color: "#8c8c8c"
         },
         container: {
 
         }
     });
 };
+
+TextInputWI.defaultProps = {
+    backgroundColor: 'rgba(52,52,52,0.8)',
+    borderColor: '#585858',
+}

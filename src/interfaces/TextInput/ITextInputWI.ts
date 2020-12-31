@@ -17,7 +17,7 @@ export interface ITextInputWI extends TextInputProps{
   /**
    * The height of the TextInput
    */
-  height: number,
+  height?: number,
   /**
    The width of the TextInput
    */
@@ -25,15 +25,24 @@ export interface ITextInputWI extends TextInputProps{
   /**
    * The border color of the input
    */
-  borderColor: string,
+  borderColor?: string,
+  /**
+   * The background color of the input
+   */
+  backgroundColor?: string,
   /**
    * Customize the individual parts of the component
    */
-  styles: {
+  styles?: {
     textInput: object,
     container: object,
     label: object
   }
+  /**
+   * Defines if the input will be a password.
+   * Password inputs will have an icon for toggle the secureTextEntry.
+   */
+  isPassword?: boolean
 
 }
 
