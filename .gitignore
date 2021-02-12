@@ -9,3 +9,6 @@ node_modules
 Logs
 
 examples
+/yarn.lock
+/package-lock.json
+/.idea

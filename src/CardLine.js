@@ -2,7 +2,7 @@ import {StyleSheet, Text, View} from "react-native";
 import React from "react";
 import PropTypes from 'prop-types';
 import Icon from "./Icon";
-import stylesConstants from "./Constants/StyleConstant";
+import stylesConstants from "./Constants/GLOBAL_STYLES";
 
 export default class CardLine extends React.Component{
     renderTitle(){

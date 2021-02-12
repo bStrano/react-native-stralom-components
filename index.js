@@ -12,9 +12,16 @@ import Tag from './src/Tag';
 import TagList from './src/TagList';
 import TextInputWI from './src/TextInput/TextInputWI';
 import LoadingModal from './src/LoadingModal';
+import ButtonWB from "./src/Button/ButtonWB";
 import IIcon from './src/interfaces/IIcon';
 import ITextInputWI from './src/interfaces/TextInput/ITextInputWI';
+import ThemeProvider from "./src/providers/ThemeProvider";
+import SHADOW from "./src/Constants/SHADOW";
+import GLOBAL_STYLES from "./src/Constants/GLOBAL_STYLES";
+import Text from "./src/Typography/Text";
 
+import useGlobalStyles from "./src/hooks/useGlobalStyles";
+import useTheme from "./src/hooks/useTheme";
 export {
     Icon,
     ICON_CLASS,
@@ -33,5 +40,10 @@ export {
     TagList,
     TextInputWI,
     LoadingModal,
+    Text,
+    ButtonWB
 };
+export {ThemeProvider}
+export {useGlobalStyles,useTheme}
+export {SHADOW,GLOBAL_STYLES}
 export {IIcon,ITextInputWI};

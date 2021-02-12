@@ -34,16 +34,19 @@ export interface ITextInputWI extends TextInputProps{
    * Customize the individual parts of the component
    */
   styles?: {
-    textInput: object,
-    container: object,
-    label: object
+    textInput?: object,
+    container?: object,
+    label?: object
   }
   /**
    * Defines if the input will be a password.
    * Password inputs will have an icon for toggle the secureTextEntry.
    */
   isPassword?: boolean
-
+  /**
+   * Defines the color of the icon that toggles the password secureTextEntry
+   */
+  iconPasswordColor?: string
 }
 
 export default ITextInputWI

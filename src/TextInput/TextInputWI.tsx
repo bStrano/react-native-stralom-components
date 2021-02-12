@@ -15,7 +15,7 @@ function TextInputWI(props: ITextInputWI) {
                     <Icon
                         class={"Ionicons"}
                         name={showPassword ? 'eye-off' : 'eye'}
-                        color={props.borderColor}
+                        color={props.iconPasswordColor ? props.iconPasswordColor : props.borderColor }
                         size={20}
                     />
                 </Pressable>
