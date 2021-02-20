@@ -1,7 +1,7 @@
 import React, {useCallback, useState} from 'react';
 import {StyleSheet, TextInput, View, Text, Pressable} from "react-native";
 import Icon, {ICON_CLASS} from "../Icon";
-import ITextInputWI from '../interfaces/TextInput/ITextInputWI';
+import ITextInputWI from '../../interfaces/TextInput/ITextInputWI';
 
 
 function TextInputWI(props: ITextInputWI) {

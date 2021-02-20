@@ -13,7 +13,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Octicons from 'react-native-vector-icons/Octicons'
 import Zocial from 'react-native-vector-icons/Zocial'
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons"
-import IIcon from './interfaces/IIcon';
+import IIcon from '../interfaces/IIcon';
 
 
 export enum ICON_CLASS {

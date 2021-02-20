@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import {StyleSheet, View} from "react-native";
 import React from "react";
-import Icon, {ICON_CLASS} from "./../Icon";
+import Icon, {ICON_CLASS} from "../Icon";
 
 
 

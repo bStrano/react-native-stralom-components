@@ -1,6 +1,6 @@
 import React, {useMemo} from "react";
 import {StyleSheet, Text as ReactText, TextProps} from 'react-native'
-import useTheme from "../hooks/useTheme";
+import useTheme from "../../hooks/useTheme";
 
 interface ITextProps extends TextProps{
     variant: "title" | "subtitle" | "regular" | "caption",
@@ -20,8 +20,10 @@ function Text({variant,children,...props} :ITextProps) {
                 return theme.typography.regular
             case 'caption':
                 return theme.typography.caption
+            default:
+                return theme.typography.title
         }
-    }, [variant])
+    }, [theme.typography,variant])
     return (
         <ReactText style={style} {...props}>{children}</ReactText>
     )
