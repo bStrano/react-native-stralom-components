@@ -4,7 +4,7 @@ interface IFAB{
   /**
    * Action that the FAB will perform
    */
-  onPress: () => void,
+  onPress?: () => void,
   /**
    * Background color of the FAB
    */
@@ -17,8 +17,24 @@ interface IFAB{
    * Custom styles
    */
   style?: {
-    container?: object
+    container?: object,
+    fabContainer?: object,
+    label?: object
   }
+  /**
+   * FAB size
+   */
+  size?: number
+  /**
+   * Action name, will be shown above the FAB
+   */
+  label?: string,
+  position: {bottom: number, left: number}
+  /**
+   * Specifies the initial and final position for the fab movement animation
+   */
+  animPositions?: {left: number, bottom: number }
+  toggled?: boolean
 }
 
 export default IFAB;

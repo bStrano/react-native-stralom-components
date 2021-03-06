@@ -2,11 +2,16 @@ import React, {useState} from 'react';
 import {Platform, StyleProp, TextStyle} from "react-native";
 
 
+export interface IPalletItem{
+    color: string,
+    font: string
+}
+
 export interface IPallet{
-    light?: string,
-    main: string,
-    dark?: string,
-    textColor?: string
+    light: IPalletItem,
+    main: IPalletItem,
+    dark: IPalletItem,
+    textColor: string
 }
 
 export interface IFontFamily{
@@ -42,46 +47,100 @@ export interface ITheme{
 
 export interface IThemeProviderProps{
     initialTheme: ITheme,
-    children: React.Component
+    children: React.ReactNode
 }
 
 
 
 const initial = {
     primary: {
-        light: '#a6d4fa',
-        main: '#90caf9',
-        dark: '#648dae',
+        light: {
+            color: '#a6d4fa',
+            font: "#000"
+        },
+        main: {
+            color: '#90caf9',
+            font: "#000"
+        },
+        dark: {
+            color: '#648dae',
+            font: "#fff"
+        },
         textColor: '#000'
     },
     secondary:{
-        light: '#f6a5c0',
-        main: '#f48fb1',
-        dark: '#aa647b',
+        light: {
+            color: '#f6a5c0',
+            font: '#000'
+        },
+        main: {
+            color: '#f48fb1',
+            font: '#000'
+        },
+        dark: {
+            color: '#aa647b',
+            font: '#000'
+        },
         textColor: '#000'
     },
     error:{
-        light: '#e57373',
-        main: '#f44336',
-        dark: '#d32f2f',
+        light: {
+            color: '#e57373',
+            font: '#fff'
+        },
+        main: {
+            color: '#f44336',
+            font: '#fff'
+        },
+        dark: {
+            color: '#d32f2f',
+            font: '#fff'
+        },
         textColor: '#fff'
     },
     warning: {
-        light: '#ffb74d',
-        main: '#ff9800',
-        dark: '#f57c00',
+        light: {
+            color: '#ffb74d',
+            font: '#fff'
+        },
+        main: {
+            color: '#ff9800',
+            font: '#fff'
+        },
+        dark: {
+            color: '#f57c00',
+            font: '#fff'
+        },
         textColor: '#fff'
     },
     info: {
-        light: '#64b5f6',
-        main: '#2196f3',
-        dark: '#1976d2',
+        light: {
+            color: '#64b5f6',
+            font: '#fff'
+        },
+        main: {
+            color: '#2196f3',
+            font: '#fff'
+        },
+        dark: {
+            color: '#1976d2',
+            font: '#fff'
+        },
         textColor: '#fff'
     },
     success: {
-        light: '#81c784',
-        main: '#4caf50',
-        dark: '#388e3c',
+        light: {
+            color: '#81c784',
+            font: '#fff'
+        },
+        main: {
+            color: '#4caf50',
+            font: '#fff'
+        },
+        dark: {
+            color: '#388e3c',
+            font: '#fff'
+        },
         textColor: '#fff'
     },
     background:'#dcdcdc',

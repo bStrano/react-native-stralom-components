@@ -7,7 +7,7 @@ import Header from './src/components/Header';
 import CheckBox from './src/components/CheckBox';
 import StringUtil from './src/components/Util/StringUtil';
 import CheckList from './src/components/CheckList';
-import FAB from './src/components/FAB';
+import FAB from './src/components/FAB/FAB';
 import Tag from './src/components/Tag';
 import TagList from './src/components/TagList';
 import TextInputWI from './src/components/TextInput/TextInputWI';
@@ -20,8 +20,11 @@ import SHADOW from "./src/Constants/SHADOW";
 import GLOBAL_STYLES from "./src/Constants/GLOBAL_STYLES";
 import Text from "./src/components/Typography/Text";
 
+
 import useGlobalStyles from "./src/hooks/useGlobalStyles";
 import useTheme from "./src/hooks/useTheme";
+import FABGroup from './src/components/FAB/FABGroup';
+import FABGroupModal from './src/components/FAB/FABGroupModal';
 export {
     Icon,
     ICON_CLASS,
@@ -41,7 +44,9 @@ export {
     TextInputWI,
     LoadingModal,
     Text,
-    ButtonWB
+    ButtonWB,
+    FABGroup,
+    FABGroupModal
 };
 export {ThemeProvider}
 export {useGlobalStyles,useTheme}
