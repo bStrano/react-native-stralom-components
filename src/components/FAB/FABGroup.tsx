@@ -34,6 +34,7 @@ export interface IFABGroupProps{
   actions: IFABAction[],
   fab: IFAB,
   customOnPress?: () => void,
+  extraOnActionPress?: () => void,
   onClose?: () => void,
 }
 
@@ -112,6 +113,7 @@ function FABGroup(props: IFABGroupProps, ref:Ref<FABGroupRef> ){
                 onPress={() => {
                   setActive(false)
                   item.onPress();
+                  if(props.extraOnActionPress) props.extraOnActionPress()
                 }}
                 key={index} backgroundColor={item.color} icon={item.icon} label={item.label}/>
             )
