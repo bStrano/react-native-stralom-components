@@ -14,6 +14,7 @@ import Octicons from 'react-native-vector-icons/Octicons'
 import Zocial from 'react-native-vector-icons/Zocial'
 import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons"
 import IIcon from '../interfaces/IIcon';
+import {Pressable} from 'react-native';
 
 
 export enum ICON_CLASS {
@@ -70,7 +71,9 @@ function getIconFromClass(icon: IIcon) {
 
 function Icon(props: IIcon) {
     return (
-      getIconFromClass(props)
+      <Pressable onPress={() => props.onPress} disabled={!props.onPress}>
+          {getIconFromClass(props)}
+      </Pressable>
     )
 }
 
