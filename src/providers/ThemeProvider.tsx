@@ -20,6 +20,7 @@ export interface IFontFamily{
     thin:    string,
     light:   string,
     bold:    string,
+    semiBold: string
 }
 
 
@@ -27,6 +28,7 @@ export interface IFontFamily{
 export interface ITypography {
     title:    StyleProp<TextStyle>,
     subtitle: StyleProp<TextStyle>,
+    medium: StyleProp<TextStyle>,
     regular:  StyleProp<TextStyle>,
     caption:  StyleProp<TextStyle>
 }
@@ -152,6 +154,7 @@ const initial = {
         thin: Platform.OS === 'ios' ? "San Francisco" : "Roboto",
         light: Platform.OS === 'ios' ? "San Francisco" : "Roboto",
         bold: Platform.OS === 'ios' ? "San Francisco" : "Roboto",
+        semiBold: Platform.OS === 'ios' ? "San Francisco" : "Roboto",
     },
 }
 
@@ -163,6 +166,10 @@ const initialTheme = {
             fontSize: 18,
         },
         subtitle: {
+            fontFamily: initial.fontFamily.semiBold,
+            fontSize: 12
+        },
+        medium: {
             fontFamily: initial.fontFamily.medium,
             fontSize: 12
         },

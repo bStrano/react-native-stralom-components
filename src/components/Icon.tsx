@@ -71,7 +71,7 @@ function getIconFromClass(icon: IIcon) {
 
 function Icon(props: IIcon) {
     return (
-      <Pressable onPress={() => props.onPress} disabled={!props.onPress}>
+      <Pressable onPress={() => props.onPress} disabled={!props.onPress} {...props.container}>
           {getIconFromClass(props)}
       </Pressable>
     )

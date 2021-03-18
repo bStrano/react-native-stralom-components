@@ -15,14 +15,14 @@ const FAB = ({
                size  = 56,
                style,
                label,
-                position=  {bottom: 28, left: 28},
+               position=  {bottom: 28, right: 28},
                animPositions,
-              toggled,
+               toggled,
              }: IFAB) => {
   const styles = styleSheet({backgroundColor,label,size})
   const didMountRef = useRef<boolean>(false);
-  const positionBottomAnim = useRef(new Animated.Value(position.bottom)).current
-  const positionLeftAnim = useRef(new Animated.Value(position.left)).current
+  const positionBottomAnim = useRef(new Animated.Value(position.bottom ? position.bottom : 0)).current
+  const positionLeftAnim = useRef(new Animated.Value(position.left ? position.left : 0)).current
   const startPositionAnimation = () => {
     if(animPositions){
       Animated.parallel([
@@ -40,17 +40,17 @@ const FAB = ({
     }
   }
 
-    useEffect( () => {
-        if(didMountRef){
-          startPositionAnimation();
-        } else {
-          if(didMountRef.current){
-            didMountRef.current = true;
-          }
-        }
-    }, [toggled]);
-    return (
-    <Animated.View style={[styles.container, style?.container,{position:'absolute',bottom: positionBottomAnim, left:positionLeftAnim}]}>
+  useEffect( () => {
+    if(didMountRef){
+      startPositionAnimation();
+    } else {
+      if(didMountRef.current){
+        didMountRef.current = true;
+      }
+    }
+  }, [toggled]);
+  return (
+    <Animated.View style={[styles.container, style?.container, animPositions ? {bottom: positionBottomAnim, left:positionLeftAnim } : position]}>
       <AnimatedPressable
         onPress={onPress}
         style={[styles.fabContainer,style?.fabContainer]}>
@@ -89,4 +89,4 @@ const styleSheet = (props: any) => StyleSheet.create({
 
 
 
-  export default FAB;
+export default FAB;

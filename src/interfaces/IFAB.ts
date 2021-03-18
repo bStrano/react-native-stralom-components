@@ -29,7 +29,7 @@ interface IFAB{
    * Action name, will be shown above the FAB
    */
   label?: string,
-  position: {bottom: number, left: number}
+  position?: {bottom: number, left?: number, right: number, top?: number}
   /**
    * Specifies the initial and final position for the fab movement animation
    */

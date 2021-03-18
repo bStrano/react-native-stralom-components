@@ -25,7 +25,7 @@ function Text({variant,children,...props} :ITextProps) {
         }
     }, [theme.typography,variant])
     return (
-        <ReactText style={style} {...props}>{children}</ReactText>
+        <ReactText  {...props} style={[style,props.style]}>{children}</ReactText>
     )
 }
 
