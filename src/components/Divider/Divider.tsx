@@ -1,9 +1,13 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleProp, StyleSheet, View, ViewStyle} from 'react-native';
 import PropTypes from 'prop-types';
 
+export interface IDividerProps {
+    style?: StyleProp<ViewStyle>
+    width?: number | string;
+}
 
-const Divider = (props) => {
+const Divider = (props: IDividerProps) => {
     return <View style={[styles.separator, {width: props.width}, props.style]}/>
 };
 export default Divider;

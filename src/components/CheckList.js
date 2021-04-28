@@ -5,7 +5,7 @@ import React from 'react';
 import Icon, {ICON_CLASS} from "./Icon";
 import StringUtil from "./Util/StringUtil";
 import CheckBox from "./CheckBox";
-import Divider from "./Divider";
+import Divider from "./Divider/Divider";
 
 export default class CheckList extends React.Component {
 

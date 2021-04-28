@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useRef} from 'react';
 import {Pressable, PressableProps, StyleSheet} from 'react-native';
 import SHADOW from '../../Constants/SHADOW';
 import Text from '../Typography/Text';
@@ -40,11 +40,15 @@ function ButtonRounded({mode = 'outline', ...props}: IButtonRoundedProps) {
     });
   }, [props.color, props.fontColor, mode]);
 
+
   return (
     <Pressable
       style={[styles.container, props.stylesheet?.container]}
-      android_ripple={{color: props.color}}>
-      <Text variant={'title'} style={[styles.label, props.stylesheet?.label]}>
+      android_ripple={{color: props.color}}
+      android_disableSound={false}
+      {...props}
+    >
+      <Text variant={'title'} numberOfLines={1} adjustsFontSizeToFit={true}  style={[styles.label, props.stylesheet?.label]}>
         {props.label}
       </Text>
     </Pressable>

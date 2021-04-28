@@ -1,6 +1,6 @@
 import Icon, {ICON_CLASS} from './src/components/Icon';
 import CardLine from './src/components/CardLine';
-import Divider from './src/components/Divider';
+import Divider from './src/components/Divider/Divider';
 import {TimeLineItem} from './src/components/TimeLine/TimeLineItem';
 import {TimeLineBottomComponent, TimeLineCenterComponent, TimeLineTopComponent} from './src/components/TimeLine/TimeLineComponent';
 import Header from './src/components/Header';
@@ -19,8 +19,9 @@ import ThemeProvider from "./src/providers/ThemeProvider";
 import SHADOW from "./src/Constants/SHADOW";
 import GLOBAL_STYLES from "./src/Constants/GLOBAL_STYLES";
 import Text from "./src/components/Typography/Text";
+import ButtonRounded from './src/components/Button/ButtonRounded';
 
-
+import ColorUtil from './src/components/Util/ColorUtil';
 import useGlobalStyles from "./src/hooks/useGlobalStyles";
 import useTheme from "./src/hooks/useTheme";
 import FABGroup from './src/components/FAB/FABGroup';
@@ -45,7 +46,9 @@ export {
     LoadingModal,
     Text,
     ButtonWB,
+    ButtonRounded,
     FABGroup,
+    ColorUtil,
     FABGroupModal
 };
 export {ThemeProvider}

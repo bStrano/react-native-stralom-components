@@ -1,7 +1,7 @@
 import {Pressable, PressableProps, StyleSheet} from "react-native";
 import React from "react";
 import useTheme from "../../hooks/useTheme";
-import styled from 'styled-components/native'
+
 import Text from "../Typography/Text";
 
 interface ButtonWBProps extends PressableProps{
