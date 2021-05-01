@@ -3,7 +3,7 @@ import CardLine from './src/components/CardLine';
 import Divider from './src/components/Divider/Divider';
 import {TimeLineItem} from './src/components/TimeLine/TimeLineItem';
 import {TimeLineBottomComponent, TimeLineCenterComponent, TimeLineTopComponent} from './src/components/TimeLine/TimeLineComponent';
-import Header from './src/components/Header';
+import Header from './src/components/Header/Header';
 import CheckBox from './src/components/CheckBox';
 import StringUtil from './src/components/Util/StringUtil';
 import CheckList from './src/components/CheckList';
