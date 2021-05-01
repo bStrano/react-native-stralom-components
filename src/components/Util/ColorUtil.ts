@@ -34,7 +34,6 @@ export default class ColorUtil{
             let color = ColorUtil.shadeHexColor(colorHex, i)
             data.push(color);
         }
-        console.log(data);
         return data;
     }
 }

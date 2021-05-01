@@ -14,7 +14,7 @@ export default Divider;
 
 const styles = StyleSheet.create({
     separator: {
-        borderBottomColor: '#bbb',
+        borderBottomColor: '#eaeaea',
         borderBottomWidth: StyleSheet.hairlineWidth,
         marginVertical: 10
     },

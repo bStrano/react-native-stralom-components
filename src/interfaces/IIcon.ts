@@ -1,9 +1,11 @@
+import {GestureResponderEvent} from 'react-native';
+
 interface IIcon {
   name: string,
   class: string,
   size?: number,
   color?: string,
-  onPress?: Function,
+  onPress?: ((event: GestureResponderEvent) => void) | null | undefined,
   container?: object
 }
 
