@@ -6,7 +6,7 @@ import {TimeLineBottomComponent, TimeLineCenterComponent, TimeLineTopComponent} 
 import Header from './src/components/Header/Header';
 import CheckBox from './src/components/CheckBox';
 import StringUtil from './src/components/Util/StringUtil';
-import CheckList from './src/components/CheckList';
+import CheckList from './src/components/CheckList/CheckList';
 import FAB from './src/components/FAB/FAB';
 import Tag from './src/components/Tag';
 import TagList from './src/components/TagList';
