@@ -4,7 +4,7 @@ import Icon from "../Icon";
 
 import IIcon from '../../interfaces/IIcon';
 
-interface IHeaderProps {
+export interface IHeaderProps {
   iconLeft?: IIcon
   actionButtons?: IIcon[]
   fontColor: string
