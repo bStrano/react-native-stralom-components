@@ -27,7 +27,7 @@ function ButtonWB({backgroundColor,label,...props}:ButtonWBProps) {
             style={styles.container}
             onPress={props.onPress}
             {...props}>
-            <Text variant={"title"}>{label}a</Text>
+            <Text variant={"title"}>{label}</Text>
         </Pressable>
     )
 }

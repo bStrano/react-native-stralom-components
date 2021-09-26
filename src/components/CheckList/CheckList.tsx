@@ -53,6 +53,7 @@ interface ICheckListProps {
     insertContainer?: ViewProps
     insertInput?: TextInputProps
   }
+  itemKey?: string;
 }
 
 function CheckList(props: ICheckListProps) {
@@ -63,9 +64,9 @@ function CheckList(props: ICheckListProps) {
 
   const submitItemToChecklist = useCallback(() => {
     if (inputText !== '') {
-      let checklist = [...value];
+      let checklist = value ? [...value] : [];
       checklist.push({
-        id: StringUtil.getRandomId(),
+        _id: StringUtil.getRandomId(),
         value: inputText,
         active: false,
       });
@@ -80,6 +81,7 @@ function CheckList(props: ICheckListProps) {
       }
     }
   }, [props.onItemChange,inputText,value])
+
 
   const renderInsert = useCallback(() => {
     return (
@@ -110,21 +112,27 @@ function CheckList(props: ICheckListProps) {
         />
       </View>
     );
-  }, [props.styles?.insertInput, props.styles?.insertContainer, props.fontFamily, props.fontSize, props.placeholder, props.accentColor, submitItemToChecklist, inputText,value]);
+  }, [props.styles?.insertInput, props.styles?.insertContainer, props.fontFamily, props.fontSize, props.placeholder, props.accentColor, submitItemToChecklist, inputText]);
 
   const removeItemFromChecklist = useCallback((index) => {
-    let checklist = [...value];
+    let checklist = value ? [...value] : [];
     checklist.splice(index, 1);
     props.onItemChange(checklist);
     setValue(checklist)
-  }, [props.onItemChange, value])
+  }, [props.onItemChange])
 
   const renderContent = useCallback(() => {
     return (
       <FlatList
         data={value}
-        keyExtractor={item => item.id.toString()}
-        renderItem={({item}) => (
+        keyExtractor={ (item) =>  {
+          if(props.itemKey) {
+            return item[props.itemKey]
+          } else {
+            return item._id.toString()
+          }
+        }}
+        renderItem={({item,index}) => (
           <View style={[styles.contentContainer, props.styles?.insertContainer]}>
             {
               props.showCheckbox &&
@@ -140,6 +148,11 @@ function CheckList(props: ICheckListProps) {
                 }, props.styles?.insertInput]}
                 placeholder={props.placeholder}
                 value={item.value}
+                onChangeText={ (text) => {
+                  let valueClone = [...value];
+                  valueClone[index].value = text;
+                  setValue(valueClone);
+                }}
               />
               <Divider style={{marginVertical: 0}}/>
             </View>
@@ -156,7 +169,8 @@ function CheckList(props: ICheckListProps) {
         )}
       />
     )
-  }, [value,props.styles,props.fontSize,props.fontFamily,props.placeholder,props.accentColor])
+  }, [props.styles,props.fontSize,props.fontFamily,props.placeholder,props.accentColor,value])
+
 
 
   return (
@@ -208,30 +222,3 @@ const styles = StyleSheet.create({
     flex: 1
   },
 });
-
-CheckList.propTypes = {
-  checkBoxColor: PropTypes.string,
-  initialValue: PropTypes.array,
-  color: PropTypes.string,
-  colorTheme: PropTypes.string,
-  fontFamily: PropTypes.string,
-  onItemChange: PropTypes.func.isRequired,
-  placeholderInput: PropTypes.string,
-  contentInputFontSize: PropTypes.number,
-
-  insertContainerStyle: PropTypes.object,
-  contentContainerStyle: PropTypes.object,
-  contentInputStyle: PropTypes.object,
-  insertInputStyle: PropTypes.object
-};
-
-CheckList.defaultProps = {
-  checklist: [],
-  accentColor: 'purple',
-  placeholder: 'Adicionar item a lista',
-  fontSize: 16,
-  initialValue: [],
-  inputPosition: 'bottom',
-  showCheckbox: true,
-  focusOnSubmit: true
-};
